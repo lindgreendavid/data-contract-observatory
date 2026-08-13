@@ -42,7 +42,7 @@ jobs:
           else
             git worktree add --detach /tmp/observatory-evidence
             git -C /tmp/observatory-evidence switch --orphan evidence
-            git -C /tmp/observatory-evidence rm -rf .
+            git -C /tmp/observatory-evidence rm -rf --ignore-unmatch .
           fi
           contract-ledger --input /tmp/ecb-current.csv --report site/data/latest.json --evidence-dir /tmp/observatory-evidence
           cp /tmp/observatory-evidence/index.json site/data/evidence-index.json
