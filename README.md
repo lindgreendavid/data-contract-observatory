@@ -21,11 +21,9 @@ the complete live series is evaluated.
 
 ## Interactive experience
 
-The website turns the contract into a controlled failure laboratory: remove a required field,
+The [public website](https://lindgreendavid.github.io/data-contract-observatory/) turns the contract into a controlled failure laboratory: remove a required field,
 change the series identity, simulate lateness, or inject an extreme return and inspect which claim
 the evidence permits.
-
-> The public URL will be added after the first release is deployed.
 
 ## Evidence
 
@@ -65,4 +63,3 @@ Bank; the monitoring software and explanation are MIT-licensed.
 
 Part of [Lab Notes](https://blog-interactive.lindgreendavid.workers.dev/) — bounded,
 reproducible, and open.
-
