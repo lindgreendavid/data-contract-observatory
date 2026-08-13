@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ECB daily USD/EUR reference-rate data contract",
+  "version": "1.0.0",
+  "series_key": "EXR.D.USD.EUR.SP00.A",
+  "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A",
+  "identity": {
+    "FREQ": "D",
+    "CURRENCY": "USD",
+    "CURRENCY_DENOM": "EUR",
+    "EXR_TYPE": "SP00",
+    "EXR_SUFFIX": "A",
+    "TIME_FORMAT": "P1D",
+    "COLLECTION": "A",
+    "SOURCE_AGENCY": "4F0",
+    "UNIT": "USD",
+    "UNIT_MULT": "0"
+  },
+  "freshness": {
+    "timezone": "Europe/Berlin",
+    "grace_period_local": "18:00",
+    "calendar": "TARGET operating days"
+  },
+  "review_signal": {
+    "metric": "latest one-day log return",
+    "baseline": "up to 250 preceding log returns; minimum 60 observations",
+    "scale": "1.4826 * median absolute deviation",
+    "threshold": "absolute robust z-score >= 6",
+    "interpretation": "review only; never evidence by itself that the source is incorrect"
+  }
+}

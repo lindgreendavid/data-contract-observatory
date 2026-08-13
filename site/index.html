@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="An inspectable monitor for a real public-data contract." />
+    <title>Data Contract Observatory · Lab Notes</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the evidence</a>
+    <header class="site-header">
+      <a class="identity" href="https://blog-interactive.lindgreendavid.workers.dev/">
+        <span class="mark" aria-hidden="true">DC</span>
+        <span><strong>Data Contract Observatory</strong><small>A Lab Notes project</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#live">Live contract</a><a href="#simulator">Failure lab</a><a href="#boundary">Boundary</a>
+        <a href="https://github.com/lindgreendavid/data-contract-observatory">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">PUBLIC DATA · OBSERVABILITY</p>
+          <h1>When does a quiet pipeline stop telling the truth?</h1>
+          <p class="lede">A real ECB series, an explicit consumer contract, and a monitor that keeps structural failures separate from unusual—but potentially valid—data.</p>
+          <div class="actions"><a class="button" href="#simulator">Break the pipeline safely</a><a class="button ghost" href="https://github.com/lindgreendavid/data-contract-observatory/blob/main/docs/protocol.md">Read the frozen protocol</a></div>
+        </div>
+        <div class="orbit" aria-hidden="true">
+          <span class="core">CONTRACT</span><span class="node n1">schema</span><span class="node n2">identity</span><span class="node n3">freshness</span><span class="node n4">review</span>
+        </div>
+      </section>
+
+      <section class="question-grid" aria-label="Research summary">
+        <article><p>Question</p><h2>When does a public-data response cease to satisfy a declared operational contract?</h2></article>
+        <article><p>Evidence</p><h2>Official ECB SDMX data, fixed identity fields, TARGET-day freshness, and synthetic mutation tests.</h2></article>
+        <article><p>Finding</p><h2 id="headline-finding">Awaiting the first complete scheduled observation.</h2></article>
+        <article><p>Boundary</p><h2>A review signal is not evidence that an exchange rate—or its publisher—is wrong.</h2></article>
+      </section>
+
+      <section id="live" class="section live">
+        <div class="section-copy"><p class="eyebrow">LATEST RECORDED RUN</p><h2>One status. Two meanings.</h2><p>Contract failures describe broken expectations. Statistical signals request human inspection. They never share a label.</p></div>
+        <div class="status-panel" aria-live="polite">
+          <div class="status-row"><span>Contract</span><strong id="contract-status">Loading</strong></div>
+          <div class="status-row"><span>Statistical review</span><strong id="review-status">Loading</strong></div>
+          <dl><div><dt>Latest observation</dt><dd id="latest-date">—</dd></div><div><dt>Rows inspected</dt><dd id="row-count">—</dd></div><div><dt>Checked</dt><dd id="checked-at">—</dd></div></dl>
+          <p id="live-note" class="note">Loading the machine-readable report…</p>
+        </div>
+      </section>
+
+      <section id="simulator" class="section simulator">
+        <div class="section-copy"><p class="eyebrow">INTERACTIVE VALIDATION</p><h2>Inject a known failure.</h2><p>Choose one controlled mutation. The lab shows which layer should react and what can legitimately be concluded.</p></div>
+        <div class="lab">
+          <fieldset><legend>Pipeline condition</legend>
+            <label><input type="radio" name="fault" value="healthy" checked /> Healthy response</label>
+            <label><input type="radio" name="fault" value="schema" /> Remove <code>OBS_VALUE</code></label>
+            <label><input type="radio" name="fault" value="identity" /> Change denominator EUR → GBP</label>
+            <label><input type="radio" name="fault" value="late" /> Miss an expected TARGET day</label>
+            <label><input type="radio" name="fault" value="spike" /> Inject an extreme latest return</label>
+          </fieldset>
+          <div class="lab-result"><p class="eyebrow">EXPECTED CLASSIFICATION</p><strong id="sim-status">PASS · CLEAR</strong><p id="sim-explanation">The response satisfies the hard contract and raises no statistical review signal.</p><p class="claim"><span>Permitted claim</span><b id="sim-claim">This controlled response satisfies protocol version 1.0.0.</b></p></div>
+        </div>
+      </section>
+
+      <section id="boundary" class="section boundary">
+        <p class="eyebrow">EPISTEMIC BOUNDARY</p><h2>Observability is not omniscience.</h2>
+        <p>This system can identify a response that violates a consumer contract. It cannot inspect the ECB's unpublished upstream inputs, establish economic correctness, forecast exchange rates, or infer that a statistically unusual movement is erroneous.</p>
+        <div class="links"><a href="https://data.ecb.europa.eu/data/datasets/EXR/EXR.D.USD.EUR.SP00.A">Inspect the primary series</a><a href="https://github.com/lindgreendavid/data-contract-observatory/blob/main/docs/research-scope.md">Read the research scope</a><a href="data/latest.json">Open the machine-readable result</a></div>
+      </section>
+    </main>
+
+    <footer><span>Bounded · Reproducible · Open</span><span>MIT licensed · David Lindgreen</span></footer>
+    <script src="app.js" defer></script>
+  </body>
+</html>

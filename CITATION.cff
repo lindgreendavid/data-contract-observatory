@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this observatory, please cite the software and the ECB primary source."
+title: "Data Contract Observatory"
+type: software
+authors:
+  - family-names: Lindgreen
+    given-names: David
+version: 0.1.0
+date-released: 2026-08-13
+license: MIT
+repository-code: "https://github.com/lindgreendavid/data-contract-observatory"
+url: "https://lindgreendavid.github.io/data-contract-observatory/"
+abstract: "An inspectable public-data contract monitor demonstrated on the ECB daily USD/EUR reference-rate series."
+keywords:
+  - data contracts
+  - observability
+  - public data
+  - SDMX
+  - reproducibility
+
