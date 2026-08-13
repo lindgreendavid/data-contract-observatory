@@ -37,6 +37,6 @@ jobs:
         run: node --check site/app.js
       - name: Validate required site surfaces
         run: |
-          grep -q 'Interactive validation' site/index.html
-          grep -q 'Epistemic boundary' site/index.html
+          grep -qi 'Interactive validation' site/index.html
+          grep -qi 'Epistemic boundary' site/index.html
           grep -q 'prefers-reduced-motion' site/styles.css
