@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -29,7 +29,28 @@ jobs:
       - name: Observe the pinned public-data contract
         id: observer
         continue-on-error: true
-        run: contract-observe --output site/data/latest.json
+        run: contract-observe --raw-output /tmp/ecb-current.csv --output site/data/latest.json
+      - name: Update append-only evidence branch
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ ! -f /tmp/ecb-current.csv ]; then exit 0; fi
+          git fetch origin evidence || true
+          if git show-ref --verify --quiet refs/remotes/origin/evidence; then
+            git worktree add /tmp/observatory-evidence origin/evidence
+          else
+            git worktree add --detach /tmp/observatory-evidence
+            git -C /tmp/observatory-evidence switch --orphan evidence
+            git -C /tmp/observatory-evidence rm -rf .
+          fi
+          contract-ledger --input /tmp/ecb-current.csv --report site/data/latest.json --evidence-dir /tmp/observatory-evidence
+          cp /tmp/observatory-evidence/index.json site/data/evidence-index.json
+          git -C /tmp/observatory-evidence add index.json state.json runs
+          if ! git -C /tmp/observatory-evidence diff --cached --quiet; then
+            git -C /tmp/observatory-evidence -c user.name=github-actions[bot] -c user.email=41898282+github-actions[bot]@users.noreply.github.com commit -m "chore(evidence): record contract observation"
+            git -C /tmp/observatory-evidence push origin HEAD:evidence
+          fi
       - name: Preserve the auditable run
         if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6

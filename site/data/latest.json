@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-13T22:10:06.432573+02:00",
+  "checked_at": "2026-08-13T23:01:11.441111+02:00",
   "contract_status": "pass",
   "review_status": "clear",
   "observation_count": 385,
@@ -14,5 +14,6 @@
     "series_key": "EXR.D.USD.EUR.SP00.A",
     "url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A"
   },
-  "query_url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod=2025-02-09&endPeriod=2026-08-13&detail=full"
+  "query_url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?endPeriod=2026-08-13&detail=full&startPeriod=2025-02-09",
+  "source_sha256": "d4bc554bc1a894f6798c0ca6f928b279c2b235323efb095f04c6d7873676f25d"
 }

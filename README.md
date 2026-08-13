@@ -3,6 +3,8 @@
 [![CI](https://github.com/lindgreendavid/data-contract-observatory/actions/workflows/ci.yml/badge.svg)](https://github.com/lindgreendavid/data-contract-observatory/actions/workflows/ci.yml)
 [![Pages](https://github.com/lindgreendavid/data-contract-observatory/actions/workflows/pages.yml/badge.svg)](https://github.com/lindgreendavid/data-contract-observatory/actions/workflows/pages.yml)
 
+**Stable software release:** [v1.0.0](https://github.com/lindgreendavid/data-contract-observatory/releases/tag/v1.0.0).
+
 An inspectable observability case study for a real, regularly updated public-data series. The first
 contract monitors the European Central Bank's daily US dollar/euro reference-rate series without
 mistaking unusual exchange-rate movement for proof of a source error.
@@ -14,10 +16,12 @@ contract, and how can that failure be distinguished from an unusual but valid ob
 
 ## Current result
 
-Protocol 1.0.0 is frozen. The core implements strict schema, identity, value, uniqueness, ordering,
+Product and protocol 1.0.0 are stable. The core implements strict schema, identity, value, uniqueness, ordering,
 and TARGET-day freshness checks. A predeclared robust statistical signal is separately classified
-as `review`. Deterministic mutation tests verify that known failures reach the intended layer before
-the complete live series is evaluated.
+as `review`. The frozen fault suite correctly classifies all nine controlled faults; the single
+clean control emits no false alert. A retrospective replay covers 7,010 prefixes of the current
+historical vintage. These are synthetic and retrospective evaluations, not historical revision
+observations. Prospective revision evidence begins with the first immutable evidence-branch run.
 
 ## Interactive experience
 
@@ -31,6 +35,8 @@ the evidence permits.
 - [Bounded research scope](docs/research-scope.md)
 - [Frozen protocol](docs/protocol.md)
 - [Machine-readable contract](contracts/ecb-exr-usd-eur.json)
+- [v1 machine-readable evaluation](reports/v1-evaluation.json)
+- [`evidence` branch](https://github.com/lindgreendavid/data-contract-observatory/tree/evidence) with immutable runs, normalized state, and index
 - Deterministic synthetic mutation tests in [`tests/`](tests/)
 
 ## Reproduce
