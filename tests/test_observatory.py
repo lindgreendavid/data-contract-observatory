@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 import math
+import tempfile
 import unittest
 from datetime import date, datetime
 from pathlib import Path
@@ -13,6 +15,8 @@ from data_contract_observatory.contract import (
 )
 from data_contract_observatory.ecb import parse_csv
 from data_contract_observatory.evaluate import evaluate, transport_failure
+from data_contract_observatory.ledger import compare, normalize, record
+from data_contract_observatory.validation import evaluate_suite, retrospective_replay
 
 FIXTURE = Path(__file__).parent / "fixtures" / "ecb_valid.csv"
 BERLIN = ZoneInfo("Europe/Berlin")
@@ -79,7 +83,9 @@ class ContractTests(unittest.TestCase):
         value = 1.0
         for offset in range(61):
             row = dict(self.rows[0])
-            row["TIME_PERIOD"] = date(2026, 1, 1).fromordinal(date(2026, 1, 1).toordinal() + offset).isoformat()
+            row["TIME_PERIOD"] = (
+                date(2026, 1, 1).fromordinal(date(2026, 1, 1).toordinal() + offset).isoformat()
+            )
             value *= math.exp(0.001 if offset % 2 else -0.001)
             row["OBS_VALUE"] = str(value)
             rows.append(row)
@@ -107,6 +113,46 @@ class CalendarTests(unittest.TestCase):
 
     def test_latest_expected_day_skips_weekend_and_holiday(self) -> None:
         self.assertEqual(latest_expected_day(date(2026, 4, 6)), date(2026, 4, 2))
+
+
+class EvidenceTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.text = FIXTURE.read_text(encoding="utf-8")
+        self.columns, self.rows = parse_csv(self.text)
+
+    def test_revision_comparison_covers_add_change_remove(self) -> None:
+        previous = normalize(self.rows[:2])
+        current_rows = [dict(row) for row in self.rows[1:3]]
+        current_rows[0]["OBS_VALUE"] = "9.999"
+        delta = compare(previous, normalize(current_rows))
+        self.assertEqual(len(delta["added"]), 1)
+        self.assertEqual(len(delta["changed"]), 1)
+        self.assertEqual(len(delta["removed"]), 1)
+
+    def test_ledger_is_append_only_and_indexes_runs(self) -> None:
+        report = evaluate(
+            self.columns,
+            self.rows,
+            now=datetime(2026, 8, 13, 17, 0, tzinfo=BERLIN),
+        ).as_dict()
+        with tempfile.TemporaryDirectory() as directory:
+            run = record(self.text, report, Path(directory))
+            index = json.loads((Path(directory) / "index.json").read_text(encoding="utf-8"))
+            self.assertEqual(index["prospective_run_count"], 1)
+            self.assertEqual(run["delta"]["added"], sorted(normalize(self.rows)))
+            with self.assertRaises(FileExistsError):
+                record(self.text, report, Path(directory))
+
+    def test_frozen_fault_manifest_classifies_every_case(self) -> None:
+        manifest_path = Path(__file__).parents[1] / "evaluation/v1-fault-manifest.json"
+        result = evaluate_suite(self.text, json.loads(manifest_path.read_text(encoding="utf-8")))
+        self.assertEqual(result["detection_rate"], 1.0)
+        self.assertEqual(result["controlled_false_alert_rate"], 0.0)
+        self.assertTrue(all(case["matched"] for case in result["results"]))
+
+    def test_replay_is_explicitly_not_revision_evidence(self) -> None:
+        result = retrospective_replay(self.text)
+        self.assertFalse(result["historical_revision_evidence"])
 
 
 if __name__ == "__main__":

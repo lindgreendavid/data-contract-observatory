@@ -6,6 +6,7 @@ import math
 import statistics
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, time
+from itertools import pairwise
 from zoneinfo import ZoneInfo
 
 from .contract import IDENTITY, REQUIRED_COLUMNS, latest_expected_day
@@ -64,7 +65,7 @@ def _finding(code: str, severity: str, message: str) -> Finding:
 def _robust_latest_return(values: list[float]) -> float | None:
     if len(values) < 61 or any(value <= 0 for value in values):
         return None
-    returns = [math.log(current / previous) for previous, current in zip(values, values[1:])]
+    returns = [math.log(current / previous) for previous, current in pairwise(values)]
     latest = returns[-1]
     baseline = returns[-251:-1]
     median = statistics.median(baseline)
@@ -96,13 +97,13 @@ def evaluate(
     values: list[float] = []
     seen: set[date] = set()
     for index, row in enumerate(rows, start=1):
-        for field, expected in IDENTITY.items():
-            if field in columns and row.get(field) != expected:
+        for field, expected_identity in IDENTITY.items():
+            if field in columns and row.get(field) != expected_identity:
                 findings.append(
                     _finding(
                         "identity.changed",
                         "failure",
-                        f"Row {index}: {field}={row.get(field)!r}, expected {expected!r}.",
+                        f"Row {index}: {field}={row.get(field)!r}, expected {expected_identity!r}.",
                     )
                 )
         try:
@@ -120,7 +121,9 @@ def evaluate(
         values.append(value)
 
     if dates and dates != sorted(dates):
-        findings.append(_finding("data.out_of_order", "failure", "Observation dates are not ascending."))
+        findings.append(
+            _finding("data.out_of_order", "failure", "Observation dates are not ascending.")
+        )
 
     latest = max(dates) if dates else None
     publish_cutoff = time(18, 0)

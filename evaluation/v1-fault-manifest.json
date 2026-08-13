@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "frozen_on": "2026-08-13",
+  "cases": [
+    {"id": "control-valid", "mutation": "none", "expected_contract": "pass", "expected_review": "clear"},
+    {"id": "transport-timeout", "mutation": "transport", "expected_contract": "fail", "expected_code": "transport.unavailable"},
+    {"id": "schema-missing-value", "mutation": "missing_column", "expected_contract": "fail", "expected_code": "schema.missing_columns"},
+    {"id": "identity-denominator", "mutation": "identity", "expected_contract": "fail", "expected_code": "identity.changed"},
+    {"id": "type-nonnumeric", "mutation": "type", "expected_contract": "fail", "expected_code": "data.invalid_value"},
+    {"id": "duplicate-date", "mutation": "duplicate", "expected_contract": "fail", "expected_code": "data.duplicate_date"},
+    {"id": "reverse-order", "mutation": "order", "expected_contract": "fail", "expected_code": "data.out_of_order"},
+    {"id": "invalid-negative", "mutation": "invalid", "expected_contract": "fail", "expected_code": "data.invalid_value"},
+    {"id": "late-after-cutoff", "mutation": "freshness", "expected_contract": "fail", "expected_code": "freshness.late"},
+    {"id": "extreme-return", "mutation": "extreme", "expected_contract": "pass", "expected_review": "review", "expected_code": "distribution.extreme_latest_return"}
+  ]
+}

@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Lindgreen
     given-names: David
-version: 0.1.0
+version: 1.0.0
 date-released: 2026-08-13
 license: MIT
 repository-code: "https://github.com/lindgreendavid/data-contract-observatory"
@@ -17,4 +17,3 @@ keywords:
   - public data
   - SDMX
   - reproducibility
-
