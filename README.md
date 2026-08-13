@@ -58,7 +58,7 @@ an exchange-rate forecasting system.
 
 ## Citation
 
-Use [`CITATION.cff`](CITATION.cff). Source methodology remains attributable to the European Central
+Use [`CITATION.cff`](CITATION.cff) and see the versioned [`CHANGELOG.md`](CHANGELOG.md). Source methodology remains attributable to the European Central
 Bank; the monitoring software and explanation are MIT-licensed.
 
 Part of [Lab Notes](https://blog-interactive.lindgreendavid.workers.dev/) — bounded,
