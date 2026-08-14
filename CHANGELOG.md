@@ -3,6 +3,11 @@
 All notable public changes to Data Contract Observatory are recorded here. The project follows
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+- Synchronize the site's offline prospective-run fallback with the two-run evidence index; the
+  live counter remains evidence-branch-driven and no longitudinal performance claim is added.
+
 ## [1.0.0] - 2026-08-13
 
 - Stabilize the product and preserve the frozen protocol 1.0.0.
