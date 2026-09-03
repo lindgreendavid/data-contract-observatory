@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-09-02T21:51:05.827002+02:00",
-  "source_sha256": "58c90a562dac11f4a31d580b9fd1704a8d1d906e67a4cc6928236a8a0973822f",
+  "updated_at": "2026-09-03T21:55:37.275132+02:00",
+  "source_sha256": "c1be4bce3aba61c230a86e875471335a46bd01830fe1536061e55cbca271fcf9",
   "observations": {
     "2025-03-03": {
       "value": "1.0465",
@@ -2686,6 +2686,13 @@
     },
     "2026-09-02": {
       "value": "1.1578",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-09-03": {
+      "value": "1.1615",
       "obs_status": "A",
       "obs_conf": "F",
       "obs_pre_break": "",
