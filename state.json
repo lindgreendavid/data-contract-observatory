@@ -1,29 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-09-04T21:40:27.546031+02:00",
-  "source_sha256": "9c7edcb23150c341a4b9b1c9869e5772f072453b62ef816ad5bf3e9736affb53",
+  "updated_at": "2026-09-07T22:38:18.623488+02:00",
+  "source_sha256": "a1df39a2f4656ab7b8e21ac146007d45794769fdc81665e5e21c23333e39fc9b",
   "observations": {
-    "2025-03-03": {
-      "value": "1.0465",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-03-04": {
-      "value": "1.0557",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-03-05": {
-      "value": "1.0694",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
     "2025-03-06": {
       "value": "1.0796",
       "obs_status": "A",
@@ -2699,6 +2678,13 @@
       "breaks": ""
     },
     "2026-09-04": {
+      "value": "1.1622",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-09-07": {
       "value": "1.1622",
       "obs_status": "A",
       "obs_conf": "F",
