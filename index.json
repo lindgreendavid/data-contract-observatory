@@ -1014,8 +1014,24 @@
           "2025-03-28"
         ]
       }
+    },
+    {
+      "run_id": "2026-10-01T23-51-38.854214_02-00",
+      "checked_at": "2026-10-01T23:51:38.854214+02:00",
+      "source_sha256": "7f385ce2e333794b4fbcb11feb81c26c20c8e7d6350be25d31ac92fca37aafc8",
+      "contract_status": "pass",
+      "review_status": "clear",
+      "observation_count": 385,
+      "latest_observation": "2026-10-01",
+      "delta": {
+        "added": [
+          "2026-10-01"
+        ],
+        "changed": [],
+        "removed": []
+      }
     }
   ],
-  "run_count": 36,
-  "prospective_run_count": 36
+  "run_count": 37,
+  "prospective_run_count": 37
 }
