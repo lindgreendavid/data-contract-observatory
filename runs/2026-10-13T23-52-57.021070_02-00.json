@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "2026-10-13T23-52-57.021070_02-00",
+  "checked_at": "2026-10-13T23:52:57.021070+02:00",
+  "source_sha256": "c1dc0f0c73601bc436657120ab9ab6b4c1ba1c8fc8a9272d33989075c4606809",
+  "source": {
+    "provider": "European Central Bank",
+    "series_key": "EXR.D.USD.EUR.SP00.A",
+    "url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A"
+  },
+  "contract_status": "pass",
+  "review_status": "clear",
+  "observation_count": 384,
+  "latest_observation": "2026-10-13",
+  "delta": {
+    "added": [
+      "2026-10-13"
+    ],
+    "changed": [],
+    "removed": []
+  }
+}
