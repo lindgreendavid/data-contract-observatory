@@ -20,3 +20,12 @@ The `evidence` branch starts an append-only series of immutable runs, normalized
 date/value/status deltas. At v1.0.0 there is one real prospective run, so no longitudinal rate or
 60-day claim is made. Detection-rate and false-alert intervals in `reports/v1-evaluation.json`
 describe only the controlled suite and retrospective current-vintage replay.
+
+## Post-release amendment (2026-10-20)
+
+Re-run from the checksummed snapshot `data/ecb-exr-usd-eur-to-2026-08-13.csv` (SHA-256 `ae9f0964537594372deebeeb14c724cd9b12dedb212cceeca36d7550474e9081`): the replay reproduces exactly
+(7,010 prefixes, 0 contract failures, 9 review signals, identical per-day statuses). Two clarifications of
+interpretation, no change to any frozen number: (1) detection of 9 of 9 injected faults is a regression test, because
+the faults and the checks share an author; (2) the replay prefixes overlap and the vintage is clean, so zero contract
+failures is expected and its Wilson interval does not describe independent trials. The post-hoc threshold audit
+(`reports/post-release-threshold-audit.json`) is not preregistered.

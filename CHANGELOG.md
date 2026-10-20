@@ -5,6 +5,15 @@ All notable public changes to Data Contract Observatory are recorded here. The p
 
 ## [Unreleased]
 
+- Post-hoc, not preregistered: review-threshold audit (`src/data_contract_observatory/threshold_audit.py`,
+  `reports/post-release-threshold-audit.json`). On the checksummed ECB snapshot to 2026-08-13 the frozen
+  replay reproduces exactly (7,010 days, 0 contract failures, 9 review signals); the review rule fires
+  far more often than a normal-returns model predicts (9 signals at z >= 6 against about 0.00001 expected;
+  175 against 18.9 at z >= 3).
+- Clarified in the evaluation limits that the nine-of-nine detection is a regression test of hand-made faults,
+  not a detection-rate estimate, and that replay prefixes overlap.
+- Redesigned site with the shared Lab Notes design system (light and dark, self-hosted Geist, no third-party requests).
+
 - Synchronize the site's offline prospective-run fallback with the two-run evidence index; the
   live counter remains evidence-branch-driven and no longitudinal performance claim is added.
 

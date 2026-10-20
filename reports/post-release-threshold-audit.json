@@ -1,0 +1,83 @@
+{
+  "episode_gap_days": 5,
+  "evaluated_days": 7010,
+  "infinite_scores": 0,
+  "label": "POST-HOC (not preregistered): review-threshold sensitivity on the real series",
+  "schema_version": 1,
+  "thresholds": [
+    {
+      "dates": [],
+      "episodes": 136,
+      "gaussian_expected_signals": 18.925570403453943,
+      "rate": 0.024964336661911554,
+      "signals": 175,
+      "threshold": 3.0
+    },
+    {
+      "dates": [],
+      "episodes": 44,
+      "gaussian_expected_signals": 0.44403081050034193,
+      "rate": 0.006990014265335236,
+      "signals": 49,
+      "threshold": 4.0
+    },
+    {
+      "dates": [
+        "1999-07-20",
+        "2000-09-22",
+        "2008-08-08",
+        "2008-12-18",
+        "2008-12-19",
+        "2009-03-19",
+        "2015-01-23",
+        "2015-02-09",
+        "2015-04-10",
+        "2015-04-30",
+        "2015-05-14",
+        "2015-05-19",
+        "2016-06-24",
+        "2016-12-15",
+        "2020-03-17",
+        "2022-02-04",
+        "2022-02-24",
+        "2022-11-11",
+        "2024-11-06",
+        "2025-04-03",
+        "2025-04-11"
+      ],
+      "episodes": 19,
+      "gaussian_expected_signals": 0.004018855037746308,
+      "rate": 0.0029957203994293866,
+      "signals": 21,
+      "threshold": 5.0
+    },
+    {
+      "dates": [
+        "1999-07-20",
+        "2008-12-18",
+        "2008-12-19",
+        "2015-01-23",
+        "2015-04-30",
+        "2016-06-24",
+        "2022-11-11",
+        "2025-04-03",
+        "2025-04-11"
+      ],
+      "episodes": 8,
+      "gaussian_expected_signals": 1.3831958783428577e-05,
+      "rate": 0.0012838801711840227,
+      "signals": 9,
+      "threshold": 6.0
+    },
+    {
+      "dates": [
+        "2015-01-23"
+      ],
+      "episodes": 1,
+      "gaussian_expected_signals": 8.72178672512909e-12,
+      "rate": 0.0001426533523537803,
+      "signals": 1,
+      "threshold": 8.0
+    }
+  ]
+}

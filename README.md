@@ -29,6 +29,17 @@ The [public website](https://lindgreendavid.github.io/data-contract-observatory/
 change the series identity, simulate lateness, or inject an extreme return and inspect which claim
 the evidence permits.
 
+## Post-release audit (post-hoc)
+
+The frozen v1 replay reproduces exactly from the checksummed snapshot in `data/`. A separate, labelled
+post-hoc audit shows how the review signal count depends on the threshold and how far it departs from a
+normal-returns model (`reports/post-release-threshold-audit.json`). The nine-of-nine fault detection is a
+regression test of hand-made faults, not an estimate of real-world detection.
+
+```bash
+python scripts/generate_threshold_audit.py
+```
+
 ## Evidence
 
 - Official series: [`EXR.D.USD.EUR.SP00.A`](https://data.ecb.europa.eu/data/datasets/EXR/EXR.D.USD.EUR.SP00.A)

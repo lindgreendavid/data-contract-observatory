@@ -3,84 +3,180 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="An inspectable monitor for a real public-data contract." />
-    <title>Data Contract Observatory · Lab Notes</title>
+    <meta name="description" content="A real ECB series, an explicit data contract, and a monitor that separates broken data from unusual data. Code, evidence and limits are public." />
+    <title>Data Contract Observatory</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <script>
+      (function () {
+        var theme = "light";
+        try {
+          theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        } catch (e) {
+          theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.classList.add("js");
+      })();
+    </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip" href="#main">Skip to the evidence</a>
-    <header class="site-header">
-      <a class="identity" href="https://blog-interactive.lindgreendavid.workers.dev/">
-        <span class="mark" aria-hidden="true">DC</span>
-        <span><strong>Data Contract Observatory</strong><small>A Lab Notes project</small></span>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a href="#live">Live contract</a><a href="#simulator">Failure lab</a><a href="#boundary">Boundary</a>
-        <a href="https://github.com/lindgreendavid/data-contract-observatory">GitHub</a>
-      </nav>
+    <a class="skip" href="#main">Skip to the content</a>
+    <header class="bar">
+      <div class="wrap">
+        <a class="wordmark" href="https://notes.lindgreendavid.com/">Lab Notes</a>
+        <nav aria-label="Primary navigation">
+          <a href="#live">Live contract</a>
+          <a href="#lab">Failure lab</a>
+          <a href="#alarm">Alarm audit</a>
+          <a href="https://github.com/lindgreendavid/data-contract-observatory">GitHub</a>
+          <button class="toggle" type="button" id="theme-toggle" aria-label="Switch to dark theme">
+            <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" /></svg>
+            <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+          </button>
+        </nav>
+      </div>
     </header>
 
     <main id="main">
       <section class="hero">
-        <div>
-          <p class="eyebrow">PUBLIC DATA · OBSERVABILITY</p>
-          <h1>When does a quiet pipeline stop telling the truth?</h1>
-          <p class="lede">A real ECB series, an explicit consumer contract, and a monitor that keeps structural failures separate from unusual—but potentially valid—data.</p>
-          <div class="actions"><a class="button" href="#simulator">Break the pipeline safely</a><a class="button ghost" href="https://github.com/lindgreendavid/data-contract-observatory/blob/main/docs/protocol.md">Read the frozen protocol</a></div>
-        </div>
-        <div class="orbit" aria-hidden="true">
-          <span class="core">CONTRACT</span><span class="node n1">schema</span><span class="node n2">identity</span><span class="node n3">freshness</span><span class="node n4">review</span>
-        </div>
-      </section>
-
-      <section class="question-grid" aria-label="Research summary">
-        <article><p>Question</p><h2>When does a public-data response cease to satisfy a declared operational contract?</h2></article>
-        <article><p>Evidence</p><h2>Official ECB SDMX data, fixed identity fields, TARGET-day freshness, and synthetic mutation tests.</h2></article>
-        <article><p>Finding</p><h2 id="headline-finding">Awaiting the first complete scheduled observation.</h2></article>
-        <article><p>Boundary</p><h2>A review signal is not evidence that an exchange rate—or its publisher—is wrong.</h2></article>
-      </section>
-
-      <section class="section evidence-levels" aria-labelledby="evidence-levels-title">
-        <div class="section-copy"><p class="eyebrow">V1 EVIDENCE MAP</p><h2 id="evidence-levels-title">Stable software. Unequal evidence.</h2><p>The counters remain separate so synthetic validation cannot be mistaken for time-earned observation.</p></div>
-        <div class="status-panel">
-          <dl><div><dt>Product version</dt><dd>1.0.0</dd></div><div><dt>Prospective real runs</dt><dd id="prospective-runs">2</dd></div><div><dt>Retrospective prefixes</dt><dd>7,010</dd></div><div><dt>Synthetic fault cases</dt><dd>9 / 9 detected</dd></div></dl>
-          <p class="note">The retrospective replay uses one current historical vintage. It cannot reveal revisions that happened between past publications. The available prospective runs do not yet constitute longitudinal evidence.</p>
+        <div class="wrap">
+          <h1 class="display rise">When data goes quietly wrong.</h1>
+          <p class="lede rise" style="--i: 1">A real European Central Bank series, an explicit contract, and a monitor that tells broken data apart from unusual data.</p>
+          <div class="actions rise" style="--i: 2">
+            <a class="btn" href="#lab">Break the pipeline safely</a>
+            <a class="btn btn-quiet" href="#limits">Read the limits</a>
+          </div>
         </div>
       </section>
 
-      <section id="live" class="section live">
-        <div class="section-copy"><p class="eyebrow">LATEST RECORDED RUN</p><h2>One status. Two meanings.</h2><p>Contract failures describe broken expectations. Statistical signals request human inspection. They never share a label.</p></div>
-        <div class="status-panel" aria-live="polite">
-          <div class="status-row"><span>Contract</span><strong id="contract-status">Loading</strong></div>
-          <div class="status-row"><span>Statistical review</span><strong id="review-status">Loading</strong></div>
-          <dl><div><dt>Latest observation</dt><dd id="latest-date">—</dd></div><div><dt>Rows inspected</dt><dd id="row-count">—</dd></div><div><dt>Checked</dt><dd id="checked-at">—</dd></div></dl>
-          <p id="live-note" class="note">Loading the machine-readable report…</p>
+      <section id="live" class="wrap" aria-labelledby="live-title" style="padding-bottom: clamp(64px, 9vw, 120px)">
+        <div class="grid-2">
+          <div class="panel panel-ink rise" aria-live="polite">
+            <h2 id="live-title">One status. Two meanings.</h2>
+            <div class="status-line"><span>Contract</span><strong id="contract-status">Loading</strong></div>
+            <div class="status-line"><span>Statistical review</span><strong id="review-status">Loading</strong></div>
+            <dl class="facts">
+              <div><dt>Latest observation</dt><dd id="latest-date">—</dd></div>
+              <div><dt>Rows inspected</dt><dd id="row-count">—</dd></div>
+              <div><dt>Checked</dt><dd id="checked-at">—</dd></div>
+            </dl>
+            <p id="live-note" class="small" style="margin-top: 1.5rem">Loading the machine-readable report…</p>
+          </div>
+          <div class="panel panel-tone rise" style="--i: 1">
+            <h3>What the two lights mean</h3>
+            <p class="prose" style="margin-top: 0.75rem">A contract failure means a declared expectation is broken: a missing field, a changed series identity, a duplicate date, a late observation. A review signal means a value is unusual and a person should look. It does not mean the value, or the publisher, is wrong.</p>
+            <dl class="facts" style="grid-template-columns: 1fr 1fr">
+              <div><dt>Product version</dt><dd>1.0.0</dd></div>
+              <div><dt>Real prospective runs</dt><dd id="prospective-runs">2</dd></div>
+              <div><dt>Days replayed</dt><dd>7,010</dd></div>
+              <div><dt>Injected faults</dt><dd>9</dd></div>
+            </dl>
+          </div>
         </div>
       </section>
 
-      <section id="simulator" class="section simulator">
-        <div class="section-copy"><p class="eyebrow">INTERACTIVE VALIDATION</p><h2>Inject a known failure.</h2><p>Choose one controlled mutation. The lab shows which layer should react and what can legitimately be concluded.</p></div>
-        <div class="lab">
-          <fieldset><legend>Pipeline condition</legend>
-            <label><input type="radio" name="fault" value="healthy" checked /> Healthy response</label>
-            <label><input type="radio" name="fault" value="schema" /> Remove <code>OBS_VALUE</code></label>
-            <label><input type="radio" name="fault" value="identity" /> Change denominator EUR → GBP</label>
-            <label><input type="radio" name="fault" value="late" /> Miss an expected TARGET day</label>
-            <label><input type="radio" name="fault" value="spike" /> Inject an extreme latest return</label>
-          </fieldset>
-          <div class="lab-result"><p class="eyebrow">EXPECTED CLASSIFICATION</p><strong id="sim-status">PASS · CLEAR</strong><p id="sim-explanation">The response satisfies the hard contract and raises no statistical review signal.</p><p class="claim"><span>Permitted claim</span><b id="sim-claim">This controlled response satisfies protocol version 1.0.0.</b></p></div>
+      <section id="lab" class="band-mint section" aria-labelledby="lab-title">
+        <div class="wrap">
+          <div class="head">
+            <h2 id="lab-title">Inject a known failure.</h2>
+            <p class="prose">Interactive validation: pick one controlled mutation and see which layer should react, and what the result still leaves unproven.</p>
+          </div>
+          <div class="grid-2">
+            <div class="panel rise">
+              <fieldset>
+                <legend>Pipeline condition</legend>
+                <label class="choice"><input type="radio" name="fault" value="healthy" checked /><span>Healthy response</span></label>
+                <label class="choice"><input type="radio" name="fault" value="schema" /><span>Remove <code>OBS_VALUE</code></span></label>
+                <label class="choice"><input type="radio" name="fault" value="identity" /><span>Change denominator EUR to GBP</span></label>
+                <label class="choice"><input type="radio" name="fault" value="late" /><span>Miss an expected TARGET day</span></label>
+                <label class="choice"><input type="radio" name="fault" value="spike" /><span>Inject an extreme latest return</span></label>
+              </fieldset>
+            </div>
+            <div class="panel panel-ink result rise" style="--i: 1" aria-live="polite">
+              <p class="small">Expected classification</p>
+              <strong id="sim-status">PASS · CLEAR</strong>
+              <p id="sim-explanation">The response satisfies the hard contract and raises no statistical review signal.</p>
+              <p><span class="small">What this permits us to say</span><br /><span id="sim-claim">This controlled response satisfies protocol version 1.0.0.</span></p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="boundary" class="section boundary">
-        <p class="eyebrow">EPISTEMIC BOUNDARY</p><h2>Observability is not omniscience.</h2>
-        <p>This system can identify a response that violates a consumer contract. It cannot inspect the ECB's unpublished upstream inputs, establish economic correctness, forecast exchange rates, or infer that a statistically unusual movement is erroneous.</p>
-        <div class="links"><a href="https://data.ecb.europa.eu/data/datasets/EXR/EXR.D.USD.EUR.SP00.A">Inspect the primary series</a><a href="https://github.com/lindgreendavid/data-contract-observatory/blob/main/docs/research-scope.md">Read the research scope</a><a href="data/latest.json">Open the live result</a><a href="https://github.com/lindgreendavid/data-contract-observatory/blob/main/reports/v1-evaluation.json">Open the v1 evaluation</a><a href="https://github.com/lindgreendavid/data-contract-observatory/tree/evidence">Inspect prospective evidence</a></div>
+      <section id="alarm" class="section wrap" aria-labelledby="alarm-title">
+        <div class="head">
+          <h2 id="alarm-title">Does the alarm cry wolf?</h2>
+          <p class="prose">The review rule flags a daily move when its robust z-score reaches 6. On the real series, 9 of 7,010 replayed days cross it. A bell-curve model of returns would predict almost none. Currency returns have heavy tails, so the rule is far more active than its threshold suggests, and a stricter or looser threshold changes the count a lot.</p>
+        </div>
+        <figure class="panel rise">
+          <svg id="alarm-chart" class="chart" role="img" aria-labelledby="alarm-caption" viewBox="0 0 720 320" preserveAspectRatio="xMidYMid meet"></svg>
+          <figcaption id="alarm-caption" class="small" style="margin-top: 1rem">Share of days that would be flagged at each threshold, on a logarithmic scale, observed on the real series (coloured dot) and expected if returns were normally distributed (grey dot; a grey dot at the left edge means below 1 in 10 million). The table below gives every number.</figcaption>
+          <div class="legend"><span><i style="background: var(--accent)"></i>Observed on the ECB series</span><span><i style="background: var(--ink-3); opacity: 0.55"></i>Expected under a normal model</span></div>
+          <div class="table-wrap">
+            <table>
+              <caption>Post-hoc audit, not preregistered. 7,010 days; each day scored against the preceding 250 daily log returns.</caption>
+              <thead><tr><th scope="col">Threshold (robust z)</th><th scope="col">Days flagged</th><th scope="col">Share of days</th><th scope="col">Expected if normal</th><th scope="col">Separate episodes</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">3</th><td>175</td><td>2.50%</td><td>18.9</td><td>136</td></tr>
+                <tr><th scope="row">4</th><td>49</td><td>0.70%</td><td>0.44</td><td>44</td></tr>
+                <tr><th scope="row">5</th><td>21</td><td>0.30%</td><td>0.004</td><td>19</td></tr>
+                <tr><th scope="row">6 (frozen rule)</th><td>9</td><td>0.13%</td><td>0.00001</td><td>8</td></tr>
+                <tr><th scope="row">8</th><td>1</td><td>0.014%</td><td>0</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </figure>
+      </section>
+
+      <section id="limits" class="band-ink section" aria-labelledby="limits-title">
+        <div class="wrap">
+          <div class="head">
+            <h2 id="limits-title">Epistemic boundary: what this cannot tell you.</h2>
+            <p class="prose">Limits are part of the result. Read them before you read the numbers above.</p>
+          </div>
+          <ul class="limits">
+            <li><strong>Nine out of nine is a test, not a rate.</strong> The nine faults were written by the same author as the checks that catch them, so the 100% detection is a regression test. The 95% Wilson interval of 0.70 to 1.00 reflects only nine hand-made cases.</li>
+            <li><strong>A clean file cannot fail.</strong> The replay uses one current vintage of the series, so zero contract failures is the expected outcome. It cannot reveal revisions that happened between past publications, and its 7,010 prefixes overlap, so they are not independent trials.</li>
+            <li><strong>The review rule is a heuristic.</strong> The excess over a normal model mixes heavy tails, volatile periods and a scale estimated from 250 points. This audit does not separate them, and a signal never proves an error.</li>
+            <li><strong>One series, one publisher.</strong> The monitor cannot see the ECB's unpublished inputs, judge economic correctness, or forecast anything.</li>
+            <li><strong>Not checked.</strong> Other series, other thresholds chosen in advance, and any long prospective record: the live evidence branch holds only a few runs so far.</li>
+            <li><strong>Post-hoc.</strong> The alarm audit was added after the frozen v1 release and is not preregistered.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="how-title">
+        <div class="grid-2">
+          <div>
+            <h2 id="how-title">Reproduce it yourself.</h2>
+            <p class="prose" style="margin-top: 1.25rem">The code uses only the Python standard library. The ECB snapshot used for the replay is in the repository with its checksum.</p>
+            <pre><code>python -m unittest discover -s tests -v
+python scripts/generate_threshold_audit.py</code></pre>
+          </div>
+          <div class="panel panel-tone">
+            <h3>How it was built</h3>
+            <p class="prose" style="margin-top: 0.75rem">Designed and directed by David Lindgreen. The code, tests and text were written with substantial assistance from an AI system (Claude, Anthropic). Every number above was recomputed from the code before publication, and the author is responsible for the content.</p>
+            <div class="links">
+              <a href="https://github.com/lindgreendavid/data-contract-observatory">Source code</a>
+              <a href="https://github.com/lindgreendavid/data-contract-observatory/blob/main/docs/protocol.md">Frozen protocol</a>
+              <a href="https://data.ecb.europa.eu/data/datasets/EXR/EXR.D.USD.EUR.SP00.A">Primary series</a>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer><span>Bounded · Reproducible · Open</span><span>MIT licensed · David Lindgreen</span></footer>
+    <footer class="band-ink foot">
+      <div class="wrap">
+        <div class="foot-links">
+          <a href="https://notes.lindgreendavid.com/">Lab Notes</a>
+          <a href="https://github.com/lindgreendavid">GitHub</a>
+          <span>MIT licensed. Geist typeface, SIL Open Font License.</span>
+        </div>
+        <span class="foot-name" aria-hidden="true">David Lindgreen</span>
+      </div>
+    </footer>
     <script src="app.js" defer></script>
   </body>
 </html>
