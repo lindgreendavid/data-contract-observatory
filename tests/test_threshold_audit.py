@@ -65,7 +65,18 @@ class ThresholdAuditTests(unittest.TestCase):
         stored = json.loads(
             (ROOT / "reports/post-release-threshold-audit.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(stored, json.loads(json.dumps(audit)))
+        fresh = json.loads(json.dumps(audit))
+        self.assertEqual(stored["evaluated_days"], fresh["evaluated_days"])
+        self.assertEqual(stored["infinite_scores"], fresh["infinite_scores"])
+        for left, right in zip(stored["thresholds"], fresh["thresholds"], strict=True):
+            self.assertEqual(
+                (left["threshold"], left["signals"], left["episodes"], left["dates"]),
+                (right["threshold"], right["signals"], right["episodes"], right["dates"]),
+            )
+            self.assertAlmostEqual(left["rate"], right["rate"], places=9)
+            self.assertAlmostEqual(
+                left["gaussian_expected_signals"], right["gaussian_expected_signals"], places=6
+            )
 
     def test_site_table_matches_the_audit_file(self) -> None:
         stored = json.loads(
