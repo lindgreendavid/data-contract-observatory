@@ -1378,8 +1378,28 @@
         "changed": [],
         "removed": []
       }
+    },
+    {
+      "run_id": "2026-11-03T00-55-07.513014_01-00",
+      "checked_at": "2026-11-03T00:55:07.513014+01:00",
+      "source_sha256": "87e7fdfd5457ef53ebbacc7cf32fbb9886e354ee1cfac4f7b4b3546a4dac9bee",
+      "contract_status": "pass",
+      "review_status": "clear",
+      "observation_count": 386,
+      "latest_observation": "2026-11-02",
+      "delta": {
+        "added": [
+          "2026-11-02"
+        ],
+        "changed": [],
+        "removed": [
+          "2025-04-28",
+          "2025-04-29",
+          "2025-04-30"
+        ]
+      }
     }
   ],
-  "run_count": 57,
-  "prospective_run_count": 57
+  "run_count": 58,
+  "prospective_run_count": 58
 }
