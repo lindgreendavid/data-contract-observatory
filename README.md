@@ -25,7 +25,7 @@ observations. Prospective revision evidence begins with the first immutable evid
 
 ## Interactive experience
 
-The [public website](https://lindgreendavid.github.io/data-contract-observatory/) turns the contract into a controlled failure laboratory: remove a required field,
+The [public website](https://lindgreendavid.com/data-contract-observatory/) turns the contract into a controlled failure laboratory: remove a required field,
 change the series identity, simulate lateness, or inject an extreme return and inspect which claim
 the evidence permits.
 
@@ -78,5 +78,5 @@ an exchange-rate forecasting system.
 Use [`CITATION.cff`](CITATION.cff) and see the versioned [`CHANGELOG.md`](CHANGELOG.md). Source methodology remains attributable to the European Central
 Bank; the monitoring software and explanation are MIT-licensed.
 
-Part of [Lab Notes](https://blog-interactive.lindgreendavid.workers.dev/) — bounded,
+Part of [Lab Notes](https://notes.lindgreendavid.com/) — bounded,
 reproducible, and open.
