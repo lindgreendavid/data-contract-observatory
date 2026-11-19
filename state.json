@@ -1,78 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-11-05T23:42:06.682346+01:00",
-  "source_sha256": "2b01342f2fb8476310d10859b6a283cd49f5a1001644a9e0ece1ac259720679c",
+  "updated_at": "2026-11-20T00:37:19.180130+01:00",
+  "source_sha256": "486154738bfa1f6442c0f1d4f04ff2152bd6f2f3fd068cc47e5650273e4a1c43",
   "observations": {
-    "2025-05-05": {
-      "value": "1.1343",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-06": {
-      "value": "1.1325",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-07": {
-      "value": "1.136",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-08": {
-      "value": "1.1297",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-09": {
-      "value": "1.1252",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-12": {
-      "value": "1.1106",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-13": {
-      "value": "1.1112",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-14": {
-      "value": "1.1214",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-15": {
-      "value": "1.1185",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
-    "2025-05-16": {
-      "value": "1.1194",
-      "obs_status": "A",
-      "obs_conf": "F",
-      "obs_pre_break": "",
-      "breaks": ""
-    },
     "2025-05-19": {
       "value": "1.1262",
       "obs_status": "A",
@@ -2714,6 +2644,76 @@
     },
     "2026-11-05": {
       "value": "1.1224",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-06": {
+      "value": "1.1165",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-09": {
+      "value": "1.1193",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-10": {
+      "value": "1.1214",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-11": {
+      "value": "1.1127",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-12": {
+      "value": "1.1081",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-13": {
+      "value": "1.1052",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-16": {
+      "value": "1.1014",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-17": {
+      "value": "1.0989",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-18": {
+      "value": "1.0968",
+      "obs_status": "A",
+      "obs_conf": "F",
+      "obs_pre_break": "",
+      "breaks": ""
+    },
+    "2026-11-19": {
+      "value": "1.0992",
       "obs_status": "A",
       "obs_conf": "F",
       "obs_pre_break": "",
